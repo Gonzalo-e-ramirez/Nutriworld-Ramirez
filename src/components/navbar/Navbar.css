@@ -39,3 +39,14 @@ nav ul li a img{
 	height: 30px;
 	padding-left: 40px;
 }
+.cartwidget{
+	border: 1px solid rgb(105, 103, 103);
+	background-color: red;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-left: 15px;
+}
+.cartwidget:hover{
+	color: red;
+}
