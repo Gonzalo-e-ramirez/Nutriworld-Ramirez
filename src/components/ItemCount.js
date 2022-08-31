@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './ItemCount.css';
+import '../style/ItemCount.css';
 import Button from '@mui/material/Button';
 
 const ItemCount = (props) =>{

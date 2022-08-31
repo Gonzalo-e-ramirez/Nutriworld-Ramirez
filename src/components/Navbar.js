@@ -1,7 +1,7 @@
 import React from "react";
-import './Navbar.css';
-import logo from './logo.png';
-import CartWidget from "../cartwidget/CartWidget";
+import '../style/Navbar.css';
+import logo from '../img/logo.png';
+import CartWidget from "./CartWidget";
 
 const Navbar = () =>{
 	let url="";
