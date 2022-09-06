@@ -39,7 +39,7 @@ const products = [
     stock: 12,
     categoryId:2
   },
-  { id:5,
+  { id:6,
     name:"proteina",
     description: "Proteina sabor chocolate",
     cost:1600,

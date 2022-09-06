@@ -22,7 +22,7 @@ nav{
 nav ul li{
 	display: inline;
 }
-nav ul li a{
+.categorias{
 	color: #fff;
 	font-size: 15px;
 	text-decoration: none;
@@ -31,13 +31,8 @@ nav ul li a{
 	font-weight: bold;
 	letter-spacing: 1px;
 }
-nav ul li a:hover{
+.categorias:hover{
 	color: #85929E;
-}
-nav ul li a img{
-	width: 30px;
-	height: 30px;
-	padding-left: 40px;
 }
 .cartwidget{
 	border: 1px solid rgb(105, 103, 103);
@@ -46,7 +41,8 @@ nav ul li a img{
 	padding-top: 3px;
 	padding-bottom: 3px;
 	margin-left: 15px;
+	padding-left: 10px;
 }
 .cartwidget:hover{
-	color: red;
+	color: white;
 }
