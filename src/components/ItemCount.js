@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 const ItemCount = (props) =>{
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(props.initial);
 
     useEffect( ()=>{
         setCount(props.initial);
