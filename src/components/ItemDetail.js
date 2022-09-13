@@ -2,14 +2,17 @@ import ItemCount from './ItemCount';
 import '../style/ItemDetail.css';
 import {Link} from "react-router-dom";
 import Button from '@mui/material/Button';
-import {useState } from "react";
+import {useContext, useState } from "react";
+import { CartContext } from './CartContext';
 const ItemDetail = ({item}) =>{
 
     const [Count, setCount] = useState(0);
+    const context = useContext(CartContext);
     
     const onAdd = (qty) => {
         alert("Se agregaron "+qty+" elementos al carrito.");
         setCount(qty);
+        context.addItem(item, qty);
     }
     return(
         <div  className="detail">
