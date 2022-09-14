@@ -1,0 +1,14 @@
+.carrito{
+    border: 2px black;
+    text-align: left;
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.producto{
+    width: 70px;
+    height: 70px;
+    border: 2px black;
+    float: left;
+    
+}

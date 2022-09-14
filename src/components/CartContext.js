@@ -12,8 +12,9 @@ const CartContextProvider = ({children}) =>{
         let exist= isInCart(item.id);
 
         if(exist){
-            console.log("funcionaaa")
-
+            setCartList(cartList.map((cartItem) => {
+                return cartItem.id === item.id ? {...cartItem, qty: cartItem.qty + qty} : cartItem;
+            }))
         }else{
             let itemforCart = {
                 ...item,
@@ -41,15 +42,12 @@ const CartContextProvider = ({children}) =>{
         let exist = false;
 
         let comparation = cartList.filter(item=> item.id ===id);
-        console.log(comparation);
 
         if(comparation.length !== 0){
             exist=true;
             console.log("listo")
         }
-
         return exist;
-        
     }
 
 
