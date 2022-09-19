@@ -7,7 +7,19 @@ const CartContextProvider = ({children}) =>{
     const[cartList, setCartList] = useState([]);
 
 
+  let cantidadInicial = 0;
+  let cantidad = cartList.reduce(function (accumulator, curValue) {
+    return accumulator + curValue.qty
+  }, cantidadInicial)
+
+  let subtotalInicial = 0;
+  let subtotal = cartList.reduce(function (accumulator, curValue) {
+    return accumulator + (Number(curValue.cost) * curValue.qty)
+  }, subtotalInicial)
+
+
     const addItem = (item, qty) =>{
+        
 
         let exist= isInCart(item.id);
 
@@ -52,7 +64,7 @@ const CartContextProvider = ({children}) =>{
 
 
     return(
-        <CartContext.Provider value={{cartList, addItem, removeItem, clear}}>
+        <CartContext.Provider value={{cartList, addItem, removeItem, clear, cantidad, subtotal}}>
             {children}
         </CartContext.Provider>
     );
