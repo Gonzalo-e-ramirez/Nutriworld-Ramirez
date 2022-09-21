@@ -1,7 +1,6 @@
 import '../style/ItemListContainer.css';
 import ItemList from './ItemList';
-import datos from '../utils/promese'
-import {products} from '../utils/products'
+import {firestoreFetch} from '../utils/firebaseConfig';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 
@@ -12,15 +11,8 @@ const ItemListContainer = () =>{
 
 
     useEffect( ()=>{
-        if(id){
-            datos(products.filter(item =>item.categoryId === parseInt(id)))
+        firestoreFetch(id)
             .then(result => setData(result))
-            .catch(err => console.log(err))
-        }else{
-            datos(products)
-            .then(result => setData(result))
-            .catch(err => console.log(err))
-        }
     }, [id]);
 
     return(

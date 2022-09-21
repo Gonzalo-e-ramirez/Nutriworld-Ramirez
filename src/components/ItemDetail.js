@@ -24,7 +24,7 @@ const ItemDetail = ({item}) =>{
             <br></br>
             {
                 Count === 0
-            ? <ItemCount stock={item.stock} initial={Count} onAdd={onAdd}></ItemCount> 
+            ? <ItemCount stock={item.stock} initial={Count+1} onAdd={onAdd}></ItemCount> 
             : <Link to='/cart'><Button variant="outlined" color="error">Checkout</Button></Link>
             }
         </div>
