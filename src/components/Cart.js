@@ -5,11 +5,49 @@ import '../style/Cart.css';
 import { Card } from '@mui/material';
 import { Stack } from '@mui/material';
 import {Link} from "react-router-dom";
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import {db} from '../utils/firebaseConfig';
 
 const Cart = () => {
 
     const productos = useContext(CartContext);
-    let subtotal = productos.subtotal;
+    const createOrder = () =>{
+        let itemsDB = productos.cartList.map( item => ({
+            id:item.id,
+            title: item.name,
+            price:item.cost,
+        }))
+        let order = {
+            buyer:{
+                name:"Jose Cuervo",
+                email: "jose.cuervo@gmail.com",
+                phone:"12544322"
+            },
+            item: itemsDB,
+            date: serverTimestamp(),
+            total:productos.subtotal
+        }
+
+        const createOrderInFirestore = async () =>{
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }    
+
+        createOrderInFirestore()
+        .then(result => {
+            alert("Se creo su orden"+result.id)
+            productos.cartList.forEach(async(item)=>{
+                const changeStock = doc(db, "products", item.id);
+                await updateDoc(changeStock, {
+                    stock: increment(-item.qty)
+                });
+            })
+            productos.clear();
+        })
+        .catch(err => console.log(err));
+    }
+
 
     return(
         <>
@@ -20,7 +58,7 @@ const Cart = () => {
             {
                 productos.cartList.length === 0
             ?<div><p>El carrito esta vacio</p><Link to="/"><Button variant="outlined" color="error">Volver al inicio</Button></Link></div>
-            :<Card variant="outlined"><h3>Subtotal: ${subtotal}</h3> <Button variant="outlined">Terminar mi compra</Button></Card>
+            :<Card variant="outlined"><h3>Total: ${productos.subtotal}</h3> <Button variant="outlined" onClick={alert("Se finalizo")}>Terminar mi compra</Button></Card>
             }
         </>
     )
