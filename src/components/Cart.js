@@ -58,7 +58,7 @@ const Cart = () => {
             {
                 productos.cartList.length === 0
             ?<div><p>El carrito esta vacio</p><Link to="/"><Button variant="outlined" color="error">Volver al inicio</Button></Link></div>
-            :<Card variant="outlined"><h3>Total: ${productos.subtotal}</h3> <Button variant="outlined" onClick={alert("Se finalizo")}>Terminar mi compra</Button></Card>
+            :<Card variant="outlined"><h3>Total: ${productos.subtotal}</h3> <Button variant="outlined" onClick={() => createOrder()}>Terminar mi compra</Button></Card>
             }
         </>
     )
