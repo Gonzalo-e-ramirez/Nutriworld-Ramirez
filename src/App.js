@@ -1,6 +1,7 @@
 import './App.css';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
@@ -19,6 +20,7 @@ function App() {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
+        <Footer/>
         </BrowserRouter>
         </CartContextProvider>
     </div>
