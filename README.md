@@ -1,6 +1,6 @@
 # NutriWorld
 
-Un proyecto de un E-Commerce de productos suplementación y nutrición desarrolado con  de  [React](https://github.com/facebook/create-react-app).
+Un proyecto de un E-Commerce de productos suplementación y nutrición desarrollado con   [React](https://github.com/facebook/create-react-app).
 
 ## Scripts necesarios
 
